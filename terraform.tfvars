@@ -1,11 +1,14 @@
-project_prefix         = "cmtr-gqdgh5re-01"
-aws_region             = "us-east-1"
-vpc_cidr_block         = "10.10.0.0/16"
-public_subnet_azs      = ["us-east-1a", "us-east-1b", "us-east-1c"]
-public_subnet_cidrs    = ["10.10.1.0/24", "10.10.3.0/24", "10.10.5.0/24"]
-public_subnet_suffixes = ["a", "b", "c"]
+aws_region = "us-east-1"
+
 default_tags = {
   Environment = "lab"
   ManagedBy   = "terraform"
 }
 
+project_id              = "cmtr-gqdgh5re-02"
+aws_keypair_name        = "tf-lab-keypair"
+aws_instance_name       = "tf-lab-ec2"
+aws_security_group_name = "tf-lab-ec2-sg"
+
+aws_instance_ami   = "ami-000539d6cf7e20d95"
+aws_instance_type  = "t3.micro"

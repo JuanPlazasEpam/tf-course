@@ -1,35 +1,47 @@
-variable "project_prefix" {
-  description = "Prefix used for naming AWS network resources created by this configuration."
-  type        = string
-}
-
 variable "aws_region" {
-  description = "AWS region where the network stack will be created."
+  description = "AWS region where resources will be created."
   type        = string
-}
-
-variable "vpc_cidr_block" {
-  description = "CIDR block to assign to the VPC."
-  type        = string
-}
-
-variable "public_subnet_azs" {
-  description = "List of availability zones for the public subnets."
-  type        = list(string)
-}
-
-variable "public_subnet_cidrs" {
-  description = "List of CIDR blocks for the public subnets. Length must match public_subnet_azs."
-  type        = list(string)
-}
-
-variable "public_subnet_suffixes" {
-  description = "List of suffixes used to build public subnet names. Length must match public_subnet_azs."
-  type        = list(string)
 }
 
 variable "default_tags" {
-  description = "Map of default tags to apply to all supported resources."
+  description = "Map of default tags to apply to all resources."
   type        = map(string)
 }
+
+variable "project_id" {
+  description = "Unique project identifier used for tagging."
+  type        = string
+}
+
+variable "aws_keypair_name" {
+  description = "Name for the EC2 key pair."
+  type        = string
+}
+
+variable "aws_instance_name" {
+  description = "Name tag for the EC2 instance."
+  type        = string
+}
+
+variable "aws_security_group_name" {
+  description = "Name for the EC2 security group."
+  type        = string
+}
+
+variable "aws_instance_ami" {
+  description = "AMI ID for the EC2 instance."
+  type        = string
+}
+
+variable "aws_instance_type" {
+  description = "Instance type for the EC2 instance."
+  type        = string
+}
+
+variable "ssh_key" {
+  description = "Provides custom public SSH key."
+  type        = string
+  sensitive   = true
+}
+
 
