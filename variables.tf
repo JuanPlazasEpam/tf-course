@@ -1,35 +1,25 @@
-variable "project_prefix" {
-  description = "Prefix used for naming AWS network resources created by this configuration."
-  type        = string
-}
-
 variable "aws_region" {
-  description = "AWS region where the network stack will be created."
+  description = "AWS region where resources will be created."
   type        = string
 }
 
-variable "vpc_cidr_block" {
-  description = "CIDR block to assign to the VPC."
+variable "allowed_ip_range" {
+  description = "List of IP address ranges (CIDR) allowed to access instances."
+  type        = list(string)
+}
+
+variable "vpc_id" {
+  description = "ID of the existing VPC provided by the platform."
   type        = string
 }
 
-variable "public_subnet_azs" {
-  description = "List of availability zones for the public subnets."
-  type        = list(string)
+variable "public_instance_id" {
+  description = "ID of the existing public EC2 instance provided by the platform."
+  type        = string
 }
 
-variable "public_subnet_cidrs" {
-  description = "List of CIDR blocks for the public subnets. Length must match public_subnet_azs."
-  type        = list(string)
-}
-
-variable "public_subnet_suffixes" {
-  description = "List of suffixes used to build public subnet names. Length must match public_subnet_azs."
-  type        = list(string)
-}
-
-variable "default_tags" {
-  description = "Map of default tags to apply to all supported resources."
-  type        = map(string)
+variable "private_instance_id" {
+  description = "ID of the existing private EC2 instance provided by the platform."
+  type        = string
 }
 
