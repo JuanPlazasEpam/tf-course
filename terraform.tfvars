@@ -2,7 +2,7 @@ aws_region = "us-east-1"
 
 allowed_ip_range = [
   "18.153.146.156/32",
-  "200.118.18.42/32",
+  "/32",
 ]
 
 # IDs below are provided by the platform; replace the example
