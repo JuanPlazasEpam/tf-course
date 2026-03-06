@@ -56,17 +56,10 @@ data "aws_security_group" "lb" {
   vpc_id = data.aws_vpc.project.id
 }
 
-data "aws_ami" "amazon_linux" {
-
-  filter {
-    name   = "image-id"
-    values = ["ami-002cb6127676a5723"]
-  }
-}
 
 resource "aws_launch_template" "this" {
   name          = "cmtr-gqdgh5re-template"
-  image_id      = data.aws_ami.amazon_linux.id
+  image_id      = "ami-09e6f87a47903347c"
   instance_type = "t3.micro"
   key_name      = var.ssh_key_name
 
