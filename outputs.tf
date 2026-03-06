@@ -1,20 +1,30 @@
 output "vpc_id" {
-  description = "The ID of the created VPC."
-  value       = aws_vpc.main.id
+  description = "Discovered VPC ID by name."
+  value       = data.aws_vpc.project.id
 }
 
-output "public_subnet_ids" {
-  description = "List of IDs of the created public subnets."
-  value       = [for s in aws_subnet.public : s.id]
+output "public_subnet_id" {
+  description = "Discovered public subnet ID by name."
+  value       = data.aws_subnet.public.id
 }
 
-output "internet_gateway_id" {
-  description = "The ID of the internet gateway attached to the VPC."
-  value       = aws_internet_gateway.main.id
+output "security_group_id" {
+  description = "Discovered security group ID by name."
+  value       = data.aws_security_group.ec2.id
 }
 
-output "public_route_table_id" {
-  description = "The ID of the public route table associated with the public subnets."
-  value       = aws_route_table.public.id
+output "instance_id" {
+  description = "ID of the created EC2 instance."
+  value       = aws_instance.cmtr_instance.id
+}
+
+output "instance_private_ip" {
+  description = "Private IP of the created EC2 instance."
+  value       = aws_instance.cmtr_instance.private_ip
+}
+
+output "instance_public_ip" {
+  description = "Public IP of the created EC2 instance (if assigned)."
+  value       = aws_instance.cmtr_instance.public_ip
 }
 
