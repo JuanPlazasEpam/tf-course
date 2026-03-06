@@ -33,3 +33,9 @@ variable "default_tags" {
   type        = map(string)
 }
 
+variable "iam_policy_arn" {
+  description = "ARN of the pre-created IAM policy (cmtr-gqdgh5re-iam-policy). Provide via terraform.tfvars or CLI when planning/applying."
+  type        = string
+  default     = ""
+}
+

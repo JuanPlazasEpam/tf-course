@@ -9,3 +9,4 @@ default_tags = {
   ManagedBy   = "terraform"
 }
 
+iam_policy_arn = "arn:aws:iam::640168417636:policy/cmtr-gqdgh5re-iam-policy"
